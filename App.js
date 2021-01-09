@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
-import Banner from './components/Banner';
 import CourseList from './components/CourseList';
+import Banner from './components/Banner';
 
 const schedule = {
   "title": "CS Courses for 2018-2019",
