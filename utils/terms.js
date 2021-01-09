@@ -5,4 +5,4 @@ const getCourseTerm = course => (
     termMap[course.id.charAt(0)]
 );
 
-export {termMap, terms as terms, getCourseTerm};
+export { terms, getCourseTerm};
