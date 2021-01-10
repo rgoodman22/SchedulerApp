@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     bannerStyle: {
         color: '#888',
         fontSize: 32,
-        paddingTop: 30,
+        paddingTop: 5,
       },
 });
 
