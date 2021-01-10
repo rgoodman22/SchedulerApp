@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
+
 import Course from './Course';
 import { hasConflict } from '../utils/course'; 
 

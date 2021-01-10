@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
+
 import { terms } from '../utils/terms';
 
 const TermButton = ({term, setSelectedTerm, isActive}) => (

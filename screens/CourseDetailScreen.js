@@ -1,5 +1,6 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet} from 'react-native';
+
 import Field from '../components/Field';
 
 const CourseDetailScreen = ({route}) => {
