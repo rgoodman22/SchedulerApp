@@ -1,5 +1,7 @@
 import * as firebase from 'firebase';
 
+console.log()
+
 import "firebase/database";
 
 const firebaseConfig = {
