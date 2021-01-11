@@ -5,7 +5,7 @@ import CourseEditScreen from './CourseEditScreen';
 import Banner from '../components/Banner';
 import CourseList from '../components/CourseList';
 import UserContext from '../utils/UserContext';
-import {firebase} from '../firebase';
+import {firebase} from '../utils/firebase';
 
 const fixCourses = json => ({
   ...json,
@@ -23,10 +23,11 @@ const ScheduleScreen = ({navigation}) => {
 
   useEffect(() => {
     const db = firebase.database().ref();
-    db.on('value', snap => {
-      if (snap.val()) setSchedule(fixCourses(snap.val()))
-    }, error => console.log(error));
-    return () => { db.off('value', handleData); };
+    const handleData = snap => {
+      if (snap.val()) setSchedule(fixCourses(snap.val()));
+    }
+    db.on('value', handleData, error => alert(error));
+    return () => { db.off('value',handleData); };
   }, []);
 
 
