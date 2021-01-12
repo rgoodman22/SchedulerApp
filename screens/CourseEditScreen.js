@@ -86,20 +86,6 @@ const styles = StyleSheet.create({
         width: 300,
         padding: 5,
         backgroundColor: 'white',
-    },
-    fieldContainer: {
-        marginBottom: 20,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2.
-        },
-        shadowOpacity: 0.23,
-        shadowRadius: 2.62,
-        elevation: 4,
-    },
-    label: {
-        fontWeight: 'bold'
     }
 });
 
