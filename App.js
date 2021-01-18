@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -8,7 +8,7 @@ import CourseEditScreen from './screens/CourseEditScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import UserContext from './utils/UserContext';
 import SignInButton from './components/SignInButton';
-import {firebase} from './utils/firebase';
+import { firebase } from './utils/firebase';
 
 
 
@@ -16,14 +16,14 @@ const Stack = createStackNavigator();
 
 
 const App = () => {
-  const [user, setUser] = useState({ role: 'admin'})
+  const [user, setUser] = useState({ role: 'admin' })
   const [auth, setAuth] = useState();
 
   useEffect(() => {
     if (auth && auth.uid) {
       const db = firebase.database().ref('users').child(auth.uid);
       const handleData = snap => {
-        setUser({uid: auth.uid, ...snap.val()});
+        setUser({ uid: auth.uid, ...snap.val() });
       }
       db.on('value', handleData, error => alert(error));
       return () => { db.off('value', handleData); };
@@ -42,27 +42,26 @@ const App = () => {
     <UserContext.Provider value={user}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="RegisterScreen" 
-            component={RegisterScreen} 
-            options={ ({navigation}) => ({
+          <Stack.Screen name="ScheduleScreen"
+            component={ScheduleScreen}
+            options={({ navigation }) => ({
               title: "Schedule",
               headerRight: () => (
-                <SignInButton navigation={navigation} user = {user} />
+                <SignInButton navigation={navigation} user={user} />
               ),
             })
             }
           />
-          <Stack.Screen name="ScheduleScreen"
-            component={ScheduleScreen}
-            options={{title:'Schedule'}}
+          <Stack.Screen name="RegisterScreen"
+            component={RegisterScreen}
           />
           <Stack.Screen name="CourseDetailScreen"
             component={CourseDetailScreen}
-            options={{ title: 'Course Detail'}}
+            options={{ title: 'Course Detail' }}
           />
           <Stack.Screen name="CourseEditScreen"
             component={CourseEditScreen}
-            options={{ title: 'Course Editor'}}
+            options={{ title: 'Course Editor' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
